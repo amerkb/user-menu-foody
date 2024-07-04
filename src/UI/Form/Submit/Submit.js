@@ -1,12 +1,12 @@
 import React from "react";
 
-const Submit = ({ value = "Submit" ,onClick}) => {
+const Submit = ({ value = "Submit", onClick }) => {
   return (
     <div>
       <button
-      onClick={onClick}
+        onClick={onClick}
         type="submit"
-        className="bg-[#28a745] text-center hover:bg-[#1c602d] duration-200  text-white font-semibold outline-none min-w-[80px]  px-3 py-2 text-[14px] rounded-[0.25rem] border-[1px] border-transparent"
+        className="bg-green-500 text-center hover:bg-green-700 duration-200  text-white font-bold outline-none min-w-[80px]  px-4 py-2 text-[16px] rounded-[0.25rem] border-[1px] border-transparent"
       >
         {value}
       </button>

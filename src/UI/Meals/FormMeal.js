@@ -9,6 +9,7 @@ const FormBranch = () => {
   const dispatch = useDispatch();
   var data = useSelector((state) => state.Meal.data);
   const cart = useSelector((state) => state.Meal.cart);
+  
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -31,7 +32,7 @@ const FormBranch = () => {
     const total = updatedCart.reduce((acc, current) => {
       return acc + current.quantity * current.price;
     }, 0);
-    console.log(updatedCart)
+    console.log(total);
     dispatch(setSum(total));
     dispatch(setCart(updatedCart));
     dispatch(setShow(false));

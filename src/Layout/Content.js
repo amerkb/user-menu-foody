@@ -1,26 +1,27 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import Head from "../Layout/Head";
-import Categories from "../Layout/Categories";
-import Meals from "../Layout/Meals";
-import MealPop from "../UI/Meals/MealPop";
+import Head from "./Head";
 import MealReducer from "../Redux/MealReducer";
 import CategoryReducer from "../Redux/CategoryReducer";
+import Menu from "../Page/Menu";
+import Cart from "../Page/Cart";
 
 const rootReducer = combineReducers({
   Meal: MealReducer,
   Category: CategoryReducer,
 });
 const store = createStore(rootReducer);
-const Menu = () => {
+const Content = ({ content }) => {
   return (
     <div>
-        <Categories />
-        <MealPop />
-        <Meals />
+      <Provider store={store}>
+        <Head />
+        {content === "Menu" && <Menu />}
+        {content === "Cart" && <Cart />}
+      </Provider>
     </div>
   );
 };
 
-export default Menu;
+export default Content;
