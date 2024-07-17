@@ -35,6 +35,9 @@ const FormBranch = () => {
     console.log(total);
     dispatch(setSum(total));
     dispatch(setCart(updatedCart));
+    sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+    sessionStorage.setItem("sum", total);
+
     dispatch(setShow(false));
   }
 

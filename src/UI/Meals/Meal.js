@@ -4,6 +4,7 @@ import { setCart, setData, setShow, setSum } from "../../Redux/MealReducer";
 import Add from "../Buton/Add";
 import Update from "../Buton/Update";
 import Delete from "../Buton/Delete";
+import LazyLoad from "react-lazyload";
 
 const Meal = ({ data }) => {
   const [update, SetUpdate] = useState(false);
@@ -25,19 +26,22 @@ const Meal = ({ data }) => {
   }
   function handleRemove() {
     const updatedCart = cart.filter((item) => item.id !== data.id);
-    console.log(updatedCart)
+    console.log(updatedCart);
     const total = updatedCart.reduce((acc, current) => {
       return acc + current.quantity * current.price;
     }, 0);
     dispatch(setSum(total));
     dispatch(setCart(updatedCart));
-          SetUpdate(false);
-
+    sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+    sessionStorage.setItem("sum", total);
+    SetUpdate(false);
   }
   return (
     <div className="text-left h-fit  py-[20px] px-[15px] rounded-[5px] mb-8 boxfood">
       <div class="ms-card-img">
-        <img src={data.img} alt="card_img" />
+        <LazyLoad>
+          <img src={data.img} alt="card_img" />
+        </LazyLoad>
       </div>
       <div class="ms-card-body" className="p-4 text-[14px] font-bold">
         <div

@@ -8,7 +8,7 @@ const Head = () => {
     <nav
       className={`bg-[#fff] px-[30px] flex items-center justify-between h-[4.5rem] duration-500 `}
     >
-      <div className="flex justify-center items-center gap-x-6">
+      <div className="flex justify-center items-center gap-x-4">
         <Logo />
         <Menu />
       </div>

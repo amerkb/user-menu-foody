@@ -1,5 +1,5 @@
 const initialState = {
-  Active: {},
+  Active: {id:0},
 };
 
 const SET_ACTIVE = "SET_ACTIVE";

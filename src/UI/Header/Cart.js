@@ -1,14 +1,19 @@
 import React from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const sum = useSelector((state) => state.Meal.sum);
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const queryParams = new URLSearchParams(location.search);
+
+  const restaurantId = queryParams.get("restaurant_id");
+  const branchId = queryParams.get("branch_id");
  function handleclick(){
-navigate('/cart')
+navigate(`/cart?restaurant_id=${restaurantId}&branch_id=${branchId}`)
   }
 
   return (
